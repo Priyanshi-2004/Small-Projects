@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <style>
+
+       style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+ 
+        body {
+            background: white;
+        }
+ 
+        .container {
+            border: 1px solid grey;
+            margin: 1rem;
+        }
+ 
+        [data-tab-info] {
+            display: none;
+        }
+ 
+        .active[data-tab-info] {
+            display: block;
+        }
+ 
+        .tab-content {
+            margin-top: 1rem;
+            padding-left: 1rem;
+            font-size: 20px;
+            font-family: sans-serif;
+            font-weight: bold;
+            color: rgb(0, 0, 0);
+        }
+ 
+        .tabs {
+            border-bottom: 1px solid grey;
+            background-color: rgb(31, 21, 95);
+            font-size: 25px;
+            color:white;
+            display: flex;
+            margin: 0;
+        }
+ 
+        .tabs span {
+            background: rgb(5, 5, 90);
+            padding: 10px;
+            border: 1px solid rgb(255, 255, 255);
+        }
+ 
+        .tabs span:hover {
+            background: rgb(56, 78, 126);
+            cursor: pointer;
+            color: black;
+        }
+    </style>
+</head>
+ 
+<body>
+   
+    <!-- Body Container -->
+    <div class="container">
+       
+        <!-- Tabs Detail -->
+        <div class="tabs">
+            <span data-tab-value="#tab_1">Tab 1</span>
+            <span data-tab-value="#tab_2">Tab 2</span>
+            <span data-tab-value="#tab_3">Tab 3</span>
+        </div>
+ 
+        <!-- Tab content -->
+        <div class="tab-content">
+            <div class="tabs__tab active" id="tab_1" data-tab-info>
+                <p><h2>Collage</h2>
+                    Techniques of collage were first used at the time of the invention of paper in China,
+                     around 200 BC. The use of collage, however, did not arise until the 10th century in Japan,
+                      when calligraphers began to apply glued paper, using texts on surfaces,
+                       when writing their poems.
+                       [3] Some surviving pieces from this style are found in the collection of Nishi Hongan-ji— many volumes of the Sanju Rokunin Kashu.
+                </p>
+ 
+            </div>
+            <div class="tabs__tab" id="tab_2" data-tab-info>
+                <p><h2>School</h2>
+                    A school is an educational institution designed to provide learning spaces
+                     and learning environments for the teaching of students under the direction of teachers.
+                      Most countries have systems of formal education, which is sometimes compulsory.
+                      [2] In these systems, students progress through a series of schools.
+                       The names for these schools vary by country (discussed in the Regional terms section below) 
+                       but generally include primary school for young children and secondary school for teenagers
+                        who have completed primary education. An institution where higher education is taught is commonly
+                         called a university college or university.</p>
+ 
+            </div>
+            <div class="tabs__tab" id="tab_3" data-tab-info>
+                <p><h2>University</h2>
+                    A university (from Latin universitas 'a whole') is an institution of higher 
+                    (or tertiary) education and research which awards academic degrees in several 
+                    academic disciplines.[1] Universities typically offer both undergraduate and
+                     postgraduate programs. In the United States, the designation is reserved for colleges
+                      that have a graduate school.</p>
+ 
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+       
+        // function to get each tab details
+        const tabs = document.querySelectorAll('[data-tab-value]')
+        const tabInfos = document.querySelectorAll('[data-tab-info]')
+ 
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = document
+                    .querySelector(tab.dataset.tabValue);
+                tabInfos.forEach(tabInfo => {
+                    tabInfo.classList.remove('active')
+                })
+                target.classList.add('active');
+            })
+        })
+    </script>
+</body>
+ 
+</html>
